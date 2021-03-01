@@ -11,7 +11,7 @@ A one page web application that utters some speech when you click on either of t
 ## Published app: 
 https://chandupolisetty.github.io/gdp2-full-stack-app/
 
-# MERN STACK:
+# STACK:
 * FRONT END: HTML,CSS,JavaScript.
 * BACK END: Express JS.
 * DATA BASE: Mongo DB.
