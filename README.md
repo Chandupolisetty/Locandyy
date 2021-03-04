@@ -1,7 +1,10 @@
 # gdp2-full-stack-app
 
-A one page web application that utters some speech when you click on either of the colors(purple and sky blue).
-
+## About Application
+* This is a gaming app which allows the user to find the treasure by following some clues.
+* This application contains two colors where the color on the left side gives the user valid location to find the treasure where as the second color on the right side confirms whether the user is in a valid location if not it gives the clue to get into the valid location.
+* Once the user finds the treasure then it pops a joyful message "Congrats! You have earned the treasure"
+* After he/she wins they can choose some different location to be played again or they can just quit  the game.
 ## Team members
 <table>
   <tr>
