@@ -1,4 +1,4 @@
-# gdp2-full-stack-app
+# Locandyy
 
 ## About Application
 * This is a gaming app which allows the user to find the treasure by following some clues.
