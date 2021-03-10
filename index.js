@@ -14,7 +14,7 @@ const client = new MongoClient(process.env.ATLAS_URI, { useNewUrlParser: true })
 client.connect((err, database) => {
   console.log("Connected to database.")
   if (err) return console.log(err);
-  var database = database.db("locator");
+  var database = database.db("locandyy");
  app.listen(3000, function () {
    return "Connected to Database"
    
