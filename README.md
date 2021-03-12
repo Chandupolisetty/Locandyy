@@ -6,6 +6,12 @@
 * Once the user finds the treasure then it pops a joyful message "Congrats! You have earned the treasure"
 * After he/she wins they can choose some different location to be played again or they can just quit  the game.
 
+## Requirements
+* Node.js
+* Tortoise Git
+* VS code
+* GitHub
+
 ## User stories
 * As a player, I want to click the first color to request a valid (treasure) location.
 * As a player, I want to hear confirmation that a location has been selected 
