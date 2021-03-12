@@ -1,111 +1,83 @@
-const db = require('../models/location')();
+"use strict";
 
-const tabTitle = 'Locations';
+const express=require('express')
+const app=express.Router()
+var LocationSchema = require('../models/location')
+let bodyParser = require('body-parser');
 
-// GET all JSON
-module.exports.findAll = async (req, res) => {
-  (await db).models.Location.findAll({
-    attributes: {
-      exclude: ['createdAt', 'updatedAt'],
-    },
-    include: [
-      {
-        model: (await db).models.Quest,
-        attributes: ['id', 'name'],
-      },
-      {
-        model: (await db).models.Clue,
-        attributes: ['id', 'name'],
-      },
-    ],
-  })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Error retrieving all.',
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+app.post('/createLocation', async (req, res) => {
+    const location = new LocationSchema({
+        locationName: req.body.locationName,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude,
+        radius: 100,
       });
-    });
-};
+     location.save(err => {
+             if(err) {
+                let status = err.status || err.statusCode || err.code || 500;
+        res.status(status).send({ status, error: err });
+             }
+                 res.send({ status: 200, response: "Location Create Successfully" });
+      } )
+})
 
-// GET one JSON by ID
-module.exports.findOne = async (req, res) => {
-  const { id } = req.params;
-  (await db).models.Location.findByObectId(id)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: `Error retrieving item with id=${id}: ${err.message}`,
-      });
-    });
-};
+// List all the locations
 
-// HANDLE EXECUTE DATA MODIFICATION REQUESTS -----------------------------------
-
-// POST /save
-module.exports.saveNew = async (req, res) => {
-  try {
-    const context = await db;
-    await context.models.Location.create(req.body);
-    return res.redirect('/location');
-  } catch (err) {
-    // if (err instanceof ValidationError) {
-    //   const item = await prepareInvalidItem(err, req);
-    //   res.locals.location = item;
-    //   return res.render('location/create.ejs', { title: tabTitle, res });
-    // }
-    return res.redirect('/location');
-  }
-};
-
-// POST /save/:id
-module.exports.saveEdit = async (req, res) => {
-  try {
-    const reqId = parseInt(req.params.id, 10);
-    const context = await db;
-    const updated = await context.models.Location.update(req.body, {
-      where: { id: reqId },
-    });
-  } catch (err) {
-    // if (err instanceof ValidationError) {
-    //   const item = await prepareInvalidItem(err, req);
-    //   res.locals.location = item;
-    //   return res.render('location/edit.ejs', { title: tabTitle, res });
-    // }
-    return res.redirect('/location');
-  }
-};
-
-// POST /delete/:id
-module.exports.deleteItem = async (req, res) => {
-  try {
-    const reqId = parseInt(req.params.id, 10);
-    const deleted = (await db).models.Location.destroy({
-      where: { id: reqId },
-    });
-    if (deleted) {
-      return res.redirect('/location');
+app.get('/', async(req,res) =>{
+    try{
+        const locations = await LocationSchema.find()
+        res.json(locations)
     }
-    throw new Error(`${reqId} not found`);
-  } catch (err) {
-    return res.status(500).send(err.message);
-  }
-};
+    catch(err){
+        res.send('Error' + err)
+    }
+})
 
-// list the locations
-module.exports.showIndex = async (req, res) => {
-  (await db).models.Location.findAll()
-    .then((data) => {
-      res.locals.locations = data;
-      res.render('views/index.html', { title: tabTitle, res });
+// Get the loaction by Id
+
+app.get('/getLocation/:id', async(req, res) =>{
+    try{
+        const location = await LocationSchema.findById(req.params.id)
+        res.json(location)
+    }
+    catch(err){
+        res.send('Error' + err)
+    }
+})
+
+
+// Update the location
+
+app.put('/editLocation/:id', async(req, res) =>{
+    const id = parseInt(req.params.id)
+    try{
+        const updateLocation = LocationSchema.updateOne({ _id: id},{
+            $set: {
+                locationName : req.body.locationName,
+            }
+            
+        })
+        res.json(updateLocation)
+       
+    }
+    catch(err){
+        res.send('Error' + err)
+    }
+})
+
+app.delete('/deleteLocation', async (req, res) => {
+      LocationSchema.deleteOne(req.body)
+          if(err) {
+        let status = err.status || err.statusCode || err.code || 500;
+res.status(status).send({ status, error: err });
+     }
+         res.send({ status: 200, response: "Location deleted Successfully" });
     })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Error retrieving all.',
-      });
-    });
-};
 
+
+module.exports = app;
