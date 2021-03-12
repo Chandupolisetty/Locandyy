@@ -22,11 +22,6 @@ const LocationSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
-    },
-    locationType: {
-        type: String,
-        required: true,
-        trim: true
     }
 
 })
