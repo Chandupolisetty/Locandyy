@@ -5,6 +5,14 @@
 * This application contains two colors where the color on the left side gives the user valid location to find the treasure where as the second color on the right side confirms whether the user is in a valid location if not it gives the clue to get into the valid location.
 * Once the user finds the treasure then it pops a joyful message "Congrats! You have earned the treasure"
 * After he/she wins they can choose some different location to be played again or they can just quit  the game.
+
+## User stories
+* As a player, I want to click the first color to request a valid (treasure) location.
+* As a player, I want to hear confirmation that a location has been selected 
+* As a player, I want to click the second color: If I am outside the location, I want to hear something that could help me to find the location 
+* As a player, I want to click the second color: If I am inside the treasure location, I want to hear confirmation that i have earned teh 
+* As a player, after confirmation that I have earned a location: I want the game to ask if i want to start again. if yes it should start me from the begining.
+
 ## Team members
 <table>
   <tr>
