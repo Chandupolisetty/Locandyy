@@ -3,6 +3,7 @@ var app = express();
 var env = require('dotenv').config()
 const path = require('path')
 app.set('./views', path.join(__dirname, 'views'))
+const port = process.env.PORT || 3000
 
 app.get('/', function (req, res) {
   res.sendFile('./views/index.html', { root: __dirname });
@@ -15,8 +16,7 @@ client.connect((err, database) => {
   console.log("Connected to database.")
   if (err) return console.log(err);
   var database = database.db("locandyy");
- app.listen(3000, function () {
-   return "Connected to Database"
-   
- })
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
 })
