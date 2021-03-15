@@ -14,7 +14,7 @@ const router = require('./routes/router')
 app.use('/', router)
 app.use(bodyParser.json({ type: "application/*+json" }));
 
-const port = process.env.PORT || 3000
+const port = 3000
 
 
 // const MongoClient = require('mongodb').MongoClient  
