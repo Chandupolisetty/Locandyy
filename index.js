@@ -4,7 +4,7 @@ var env = require('dotenv').config()
 const path = require('path')
 const engines = require('consolidate')
 const bodyParser = require('body-parser');
-
+const mongoose = require("mongoose")
 
 app.set('view engine', 'ejs')
 app.engine('ejs', engines.ejs)
@@ -18,13 +18,22 @@ app.use(bodyParser.json({ type: "application/*+json" }));
 const port = process.env.PORT || 3000
 
 
-const MongoClient = require('mongodb').MongoClient  
-const client = new MongoClient(process.env.ATLAS_URI, { useNewUrlParser: true });
-client.connect((err, database) => {
-  console.log("Connected to database.")
-  if (err) return console.log(err);
-  var database = database.db("locandyy");
-  app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
+// const MongoClient = require('mongodb').MongoClient  
+// const client = new MongoClient(process.env.ATLAS_URI, { useNewUrlParser: true });
+// client.connect((err, database) => {
+//   console.log("Connected to database.")
+//   if (err) return console.log(err);
+//   var database = database.db("locandyy");
+//   app.listen(port, () => {
+//     console.log(`App listening at http://localhost:${port}`)
+// })
+// })
+
+mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) =>{
+  app.listen(3000, function () {
+   console.log("Connected to Database")
+  
 })
+}).catch((e) => {
+ console.log(e,"--error")
 })
