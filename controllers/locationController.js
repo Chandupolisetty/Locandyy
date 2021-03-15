@@ -9,31 +9,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+// create the location
 app.post('/createLocation', async (req, res) => {
     const location = new LocationSchema({
         locationName: req.body.locationName,
         latitude: req.body.latitude,
         longitude: req.body.longitude,
-        radius: 100,
       });
      location.save(err => {
              if(err) {
-                let status = err.status || err.statusCode || err.code || 500;
-        res.status(status).send({ status, error: err });
+                res.send('error'+err)
              }
-                 res.send({ status: 200, response: "Location Create Successfully" });
+                 res.send(location);
       } )
 })
 
 // List all the locations
 
 app.get('/', async(req,res) =>{
-    try{
         const locations = await LocationSchema.find()
         res.json(locations)
-    }
-    catch(err){
+    if(err){
         res.send('Error' + err)
     }
 })
@@ -41,11 +37,11 @@ app.get('/', async(req,res) =>{
 // Get the loaction by Id
 
 app.get('/getLocation/:id', async(req, res) =>{
-    try{
+    
         const location = await LocationSchema.findById(req.params.id)
         res.json(location)
-    }
-    catch(err){
+    
+    if(err){
         res.send('Error' + err)
     }
 })
@@ -55,7 +51,7 @@ app.get('/getLocation/:id', async(req, res) =>{
 
 app.put('/editLocation/:id', async(req, res) =>{
     const id = parseInt(req.params.id)
-    try{
+    
         const updateLocation = LocationSchema.updateOne({ _id: id},{
             $set: {
                 locationName : req.body.locationName,
@@ -64,11 +60,12 @@ app.put('/editLocation/:id', async(req, res) =>{
         })
         res.json(updateLocation)
        
-    }
-    catch(err){
+    if(err){
         res.send('Error' + err)
     }
 })
+
+// Delete Location 
 
 app.delete('/deleteLocation', async (req, res) => {
       LocationSchema.deleteOne(req.body)
