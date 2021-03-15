@@ -1,6 +1,5 @@
 var express = require('express');
-var app = express();
-var env = require('dotenv').config()
+var app = express()
 const path = require('path')
 const engines = require('consolidate')
 const bodyParser = require('body-parser');
@@ -29,7 +28,7 @@ const port = process.env.PORT || 3000
 // })
 // })
 
-mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) =>{
+mongoose.connect("mongodb+srv://chandu1997:chandu1997@locandyy.yqxbv.mongodb.net/myFirstDatabase?retryWrites=true&w=majorityDB_NAME=appdb", { useNewUrlParser: true, useUnifiedTopology: true }).then((res) =>{
   app.listen(3000, function () {
    console.log("Connected to Database")
   
