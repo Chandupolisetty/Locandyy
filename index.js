@@ -11,9 +11,6 @@ app.engine('ejs', engines.ejs)
 app.set('views', path.join(__dirname, './views'))
 const port = process.env.PORT || 3000
 
-app.get('/', function (req, res) {
-  res.sendFile('./views/index.html', { root: __dirname });
-});
 
 
 const router = require('./routes/router')
