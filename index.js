@@ -9,13 +9,13 @@ const bodyParser = require('body-parser');
 app.set('view engine', 'ejs')
 app.engine('ejs', engines.ejs)
 app.set('views', path.join(__dirname, './views'))
-const port = process.env.PORT || 3000
-
 
 
 const router = require('./routes/router')
 app.use('/', router)
 app.use(bodyParser.json({ type: "application/*+json" }));
+
+const port = process.env.PORT || 3000
 
 
 const MongoClient = require('mongodb').MongoClient  
