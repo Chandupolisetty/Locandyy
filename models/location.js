@@ -1,12 +1,6 @@
 const mongoose = require("mongoose")
 
 const LocationSchema = new mongoose.Schema({
-    id: {
-        type: String, 
-        required: true,
-        unique: true,
-        trim: true
-    },
     locationName: {
         type: String,
         required: true,
@@ -22,8 +16,11 @@ const LocationSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    radius: {
+        type: Number,
+        required: true,
     }
-
 })
 
 module.exports = mongoose.model("Location", LocationSchema)

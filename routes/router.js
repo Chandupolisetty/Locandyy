@@ -1,19 +1,18 @@
-var express = require('express')
-var router = express.Router();
+const express = require('express')
+const bodyParser = require('body-parser');
+const router = express.Router()
+router.use(bodyParser.urlencoded({ extended: true }));
+require('dotenv').config();
+const locationController = require('../controllers/locationcontroller')
 
-var locationController = require('../controllers/locationController')
+
+// router.get('/index', (req, res,next) => {
+//   res.render('../views/index', { title: 'index' })
+// })
+
+router.get('/location/', locationController.findAll);
+
+router.post('/location/', locationController.create);
 
 
- router.get('/location/', locationController.findAll)
-
- router.get('/location/:locationId', locationController.findOne)
-
-  router.post('/location/', locationController.create)
-
-  router.put('/location/:locationId', locationController.update)
-
-   router.delete('/location/:locationId', locationController.delete)
-
-                 
-
-module.exports =  router ;
+module.exports = router;

@@ -1,0 +1,54 @@
+#nav {
+  color: #ffffff;
+  background-color: #00674C;
+  text-align: center;
+  right: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#navIn {
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 200%;
+}
+
+
+
+#c2 {
+  background-color: #99cfe0;
+  text-align: center;
+  height: 400px;
+  display: table-cell;
+}
+
+#c1 {
+  background-color: #7aeb7a;
+  text-align: center;
+  height: 400px;
+  width: 60%;
+}
+
+#b1 {
+  text-align: center;
+}
+
+#foot {
+  background-color: #00674C;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+#layout {
+  padding-top: 5.5%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
