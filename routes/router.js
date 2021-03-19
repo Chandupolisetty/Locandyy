@@ -13,6 +13,8 @@ router.get('/index', (req, res,next) => {
 })
 router.get('/show',render.show);
 
+router.get('/location/chandu', locationController.show)
+
 router.get('/location/', locationController.findAll);
 
 router.get('/location/sumanth', locationController.display);
@@ -20,6 +22,8 @@ router.get('/location/sumanth', locationController.display);
 router.post('/location/', locationController.create);
 
 router.get('/sumanth', aboutSumanth.get);
+
+
 
 
 module.exports = router;
