@@ -13,9 +13,13 @@ router.get('/index', (req, res,next) => {
 })
 router.get('/show',render.show);
 
+router.get('/location/chandu', locationController.show)
+
 router.get('/location/', locationController.findAll);
 
 router.post('/location/', locationController.create);
+
+
 
 
 module.exports = router;

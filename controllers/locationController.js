@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //       } )
 // })
 
+
+exports.show = (req, res) => {
+    res.send("My name is Chandu")
+}
+
 exports.create = (req, res) => {
     console.log(req.body,"--body is here--")
     const location = new LocationSchema({
