@@ -15,7 +15,30 @@
 <body style="width: 100%; height: 100vh; display: flex; flex-direction:column; flex-wrap:nowrap">
 
     <main style="flex-grow: 1; overflow: auto; min-height: 2em;">
-       hello
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>longitude</th>
+                <th>Latitude</th>
+                <th>edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+        
+            <tbody>
+              <% for(var i=0; i < location.length; i++) { %>
+              <tr>
+                
+                <td><%= location[i].locationName %></td>
+                <td><%= location[i].longitude %></td>
+                <td><%= location[i].latitude %></td>
+               
+               
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
     </main>
    
     <!-- get from https://mdbootstrap.com/md-bootstrap-cdn/ -->

@@ -7,6 +7,8 @@ mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', true)
 mongoose.set('useCreateIndex', true)
 
+app.set('view engine', 'ejs');
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

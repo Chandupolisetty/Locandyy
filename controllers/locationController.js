@@ -60,12 +60,15 @@ exports.findAll = (req, res) => {
     LocationSchema.find()
     .then(locations => {
         res.send(locations);
+        console.log(locations);
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Something wrong while retrieving locations."
         });
     });
 }
+
+
 
 // Get the loaction by Id
 
