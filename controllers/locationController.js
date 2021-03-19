@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //       } )
 // })
 
+exports.show = (req, res) => {
+    res.send("My name is Sumanth Reddy")
 
 exports.show = (req, res) => {
     res.send("My name is Chandu")

@@ -17,7 +17,11 @@ router.get('/chandu', locationController.show)
 
 router.get('/location/', locationController.findAll);
 
+router.get('/location/sumanth', locationController.display);
+
 router.post('/location/', locationController.create);
+
+router.get('/sumanth', aboutSumanth.get);
 
 
 
