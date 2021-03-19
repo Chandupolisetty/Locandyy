@@ -22,4 +22,4 @@ mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopol
 }).catch((e) => {
   console.log(e,"--error")
 })
-app.use(require('./routes/router'))
+app.use(require('./routes/router.js'))
