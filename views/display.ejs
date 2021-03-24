@@ -1,0 +1,62 @@
+<!-- include header -->
+<%- include('header') %>
+    <!-- /include header -->
+
+
+    <body>
+        <header>
+            <div class="k">Locandyy</div>
+        </header>
+        <br><br><br><br>
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>longitude</th>
+                    <th>Latitude</th>
+                    <th>edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i < locations.length; i++) { %>
+                    <tr>
+
+                        <td>
+                            <%= locations[i].locationName %>
+                        </td>
+                        <td>
+                            <%= locations[i].longitude %>
+                        </td>
+                        <td>
+                            <%= locations[i].latitude %>
+                        </td>
+                        <td>
+                           <a href="/locations/edit">Edit</a> 
+                        </td>
+                        <td>
+                            <a href="/locations/delete">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+
+
+    </body>
+
+    <br>
+    <!-- Footer -->
+    <%- include('footer') %>
+
+    
+<script>
+    function func1(){
+      
+    }
+    function func2(){
+      console.log("I am in the click handler 2!"); 
+    }
+  </script>

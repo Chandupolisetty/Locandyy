@@ -1,5 +1,6 @@
 "use strict";
 
+var http = require("http");
 const express=require('express')
 const app=express.Router()
 var LocationSchema = require('../models/location')
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 exports.create = (req, res) => {
     console.log(req.body,"--body is here--")
+
     const location = new LocationSchema({
         locationName: req.body.locationName,
         latitude: req.body.latitude,
@@ -115,7 +117,7 @@ exports.update = (req, res) => {
     }
 
     // Find and update product with the request body
-    LocationSchema.findByIdAndUpdate(req.params.productId, {
+    LocationSchema.findOneAndUpdate(req.params.productId, {
         locationName : req.body.locationName,
     }, {new: true})
     .then(location => {
