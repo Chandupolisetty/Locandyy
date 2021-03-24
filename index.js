@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var env = require('dotenv').config()
 const router = require('./routes/router')
+const dotenv = require('dotenv');
+app.use('/', router)
 const mongoose = require("mongoose")
 mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', true)
@@ -11,6 +13,10 @@ app.set('view engine', 'ejs');
 
 var bodyParser = require('body-parser');
 
+const vars = dotenv.config({ path: '.env' });
+if (vars.error) {
+    throw vars.error;
+}
 
 const port = process.env.PORT || 3000
 app.use(bodyParser.json());
@@ -33,4 +39,3 @@ mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopol
   console.log(e,"--error")
 })
 app.use(require('./routes/router.js'))
-app.use('/', router)
