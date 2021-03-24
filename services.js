@@ -29,4 +29,17 @@ exports.updateLocation = (req, res) => {
 }
 exports.addlocation = (req, res) => {
     res.render('create');
+    var body = {
+        locationName: req.body.locationName,
+        latitude: req.body.latitude,
+        longitude: req.body.longitude
+    }
+    axios.post('http://localhost:3000/location/create', body)
+    .then(res => () => {
+        res.render("display", { locationv: res.data })
+        console.log(res.data);
+    })
+    .catch(err => {
+        res.send(err);
+    })
 }

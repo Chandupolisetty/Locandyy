@@ -16,9 +16,9 @@ router.get('/', (req, res,next) => {
 
 
 
-router.get('/display', services.displays);
-router.get('/editView', services.updateLocation);
-router.get('/create', services.addlocation);
+router.get('/locations/', services.displays);
+router.get('/locations/edit', services.updateLocation);
+router.get('/locations/create', services.addlocation);
 
 // router.get('/display', services.displays);
 // router.get('/editview', services.updateLocation);
@@ -27,7 +27,7 @@ router.get('/create', services.addlocation);
 
 router.get('/location/', locationController.findAll);
 
-router.post('/location/', locationController.create);
+router.post('/locations/', locationController.create);
 
 router.put('/location/edit', locationController.update)
 

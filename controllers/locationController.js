@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 exports.create = (req, res) => {
     console.log(req.body,"--body is here--")
+
     const location = new LocationSchema({
         locationName: req.body.locationName,
         latitude: req.body.latitude,

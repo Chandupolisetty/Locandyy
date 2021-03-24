@@ -10,9 +10,19 @@ mongoose.set('useCreateIndex', true)
 app.set('view engine', 'ejs');
 
 var bodyParser = require('body-parser');
+
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// app.use(function(req, res, next){
+//   res.header('Access-Control-Allow_origin', "*");
+//   res.setHeader('Access-Control-Allow_origin-Method', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+//   res.header('Access-Control-Allow-Header',"Origin, X-Requested-With, Content-Type, Accept");
+// })
+
+app.use(express.static(__dirname + '/public'));
 
 mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) =>{
    app.listen(3000, function () {

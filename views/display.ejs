@@ -4,11 +4,13 @@
 
 
     <body>
+        <header>
+            <div class="k">Locandyy</div>
+        </header>
         <br><br><br><br>
         <table class="table table-inverse">
             <thead>
                 <tr>
-                    <th>LocationID</th>
                     <th>Name</th>
                     <th>longitude</th>
                     <th>Latitude</th>
@@ -20,11 +22,9 @@
             <tbody>
                 <% for(var i=0; i < locations.length; i++) { %>
                     <tr>
+
                         <td>
-                            <%= locations[i]._id %>
-                        </td>
-                        <td>
-                            <%= locations[i].name %>
+                            <%= locations[i].locationName %>
                         </td>
                         <td>
                             <%= locations[i].longitude %>
@@ -33,9 +33,10 @@
                             <%= locations[i].latitude %>
                         </td>
                         <td>
-                            <a class="btn" data-id=<%=locations[i]._id %>>
-            <span class ="text-gradient"><i class="fa-times"></i></span>
-          </a>
+                           <a href="/locations/edit">Edit</a> 
+                        </td>
+                        <td>
+                            <a href="/locations/delete">Delete</a>
                         </td>
                     </tr>
                     <% } %>
@@ -49,3 +50,13 @@
     <br>
     <!-- Footer -->
     <%- include('footer') %>
+
+    
+<script>
+    function func1(){
+      
+    }
+    function func2(){
+      console.log("I am in the click handler 2!"); 
+    }
+  </script>
