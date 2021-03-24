@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
-var env = require('dotenv').config({silent: true})
+var env = require('dotenv').config({silent:true})
 const router = require('./routes/router')
 const dotenv = require('dotenv');
+
 app.use('/', router)
 const mongoose = require("mongoose")
 mongoose.set('useNewUrlParser', true)
