@@ -4,24 +4,36 @@ const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: true }));
 require('dotenv').config();
 const locationController = require('../controllers/locationcontroller');
-const render = require('../seed');
+// const display = require('../views/display/display.js');
+// const edit = require('../views/edit/edit.js')
+// const create = require('../views/create/create.js')
+const services = require('../services')
 
 
-
-router.get('/index', (req, res,next) => {
+router.get('/', (req, res,next) => {
   res.render('../views/index', { title: 'index' })
 })
-router.get('/show',render.show);
 
-router.get('/chandu', locationController.show)
+
+
+router.get('/display', services.displays);
+router.get('/editView', services.updateLocation);
+router.get('/create', services.addlocation);
+
+// router.get('/display', services.displays);
+// router.get('/editview', services.updateLocation);
+// router.get('/create', services.addlocation);
+
 
 router.get('/location/', locationController.findAll);
 
-router.get('/location/sumanth', locationController.display);
-
 router.post('/location/', locationController.create);
 
-router.get('/sumanth', aboutSumanth.get);
+router.put('/location/edit', locationController.update)
+
+router.delete('/location/delete', locationController.delete)
+
+
 
 
 

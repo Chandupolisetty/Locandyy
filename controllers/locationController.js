@@ -1,5 +1,6 @@
 "use strict";
 
+var http = require("http");
 const express=require('express')
 const app=express.Router()
 var LocationSchema = require('../models/location')
@@ -26,13 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //                  res.send({ status: 200, response: "Location Create Successfully" });
 //       } )
 // })
-
-exports.show = (req, res) => {
-    res.send("My name is Sumanth Reddy")
-
-exports.show = (req, res) => {
-    res.send("My name is Chandu")
-}
 
 exports.create = (req, res) => {
     console.log(req.body,"--body is here--")
@@ -122,7 +116,7 @@ exports.update = (req, res) => {
     }
 
     // Find and update product with the request body
-    LocationSchema.findByIdAndUpdate(req.params.productId, {
+    LocationSchema.findOneAndUpdate(req.params.productId, {
         locationName : req.body.locationName,
     }, {new: true})
     .then(location => {

@@ -1,0 +1,51 @@
+<!-- include header -->
+<%- include('header') %>
+    <!-- /include header -->
+
+
+    <body>
+        <br><br><br><br>
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>LocationID</th>
+                    <th>Name</th>
+                    <th>longitude</th>
+                    <th>Latitude</th>
+                    <th>edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(var i=0; i < locations.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= locations[i]._id %>
+                        </td>
+                        <td>
+                            <%= locations[i].name %>
+                        </td>
+                        <td>
+                            <%= locations[i].longitude %>
+                        </td>
+                        <td>
+                            <%= locations[i].latitude %>
+                        </td>
+                        <td>
+                            <a class="btn" data-id=<%=locations[i]._id %>>
+            <span class ="text-gradient"><i class="fa-times"></i></span>
+          </a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+
+
+    </body>
+
+    <br>
+    <!-- Footer -->
+    <%- include('footer') %>
