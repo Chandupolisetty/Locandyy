@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: true }));
 require('dotenv').config();
-const locationController = require('../controllers/locationcontroller');
+const locationController = require('../controllers/locationController');
 // const display = require('../views/display/display.js');
 // const edit = require('../views/edit/edit.js')
 // const create = require('../views/create/create.js')
