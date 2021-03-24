@@ -32,4 +32,13 @@
 * DATA BASE: Mongo DB.
 * Environment: Node jS.
 
-## Reference: https://nordicapis.com/building-a-restful-api-using-node-js-and-mongodb/
+## How to view our app:
+
+- Clone the repo down to your local machine.
+- Open a terminal and run the command npm i.
+- Run the command npm run start. 
+
+
+## Reference: 
+
+https://nordicapis.com/building-a-restful-api-using-node-js-and-mongodb/
