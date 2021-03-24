@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var env = require('dotenv').config()
+var env = require('dotenv').config({silent: true})
 const router = require('./routes/router')
 const dotenv = require('dotenv');
 app.use('/', router)
@@ -12,12 +12,12 @@ mongoose.set('useCreateIndex', true)
 app.set('view engine', 'ejs');
 
 var bodyParser = require('body-parser');
-require('dotenv').config({ path: 'ENV_FILENAME' });
+// require('dotenv').config({ path: 'ENV_FILENAME' });
 
-const vars = dotenv.config({ path: '.env' });
-if (vars.error) {
-    throw vars.error;
-}
+// const vars = dotenv.config({ path: '.env' });
+// if (vars.error) {
+//     throw vars.error;
+// }
 
 const port = process.env.PORT || 3000
 app.use(bodyParser.json());
