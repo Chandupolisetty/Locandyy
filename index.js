@@ -12,6 +12,7 @@ mongoose.set('useCreateIndex', true)
 app.set('view engine', 'ejs');
 
 var bodyParser = require('body-parser');
+require('dotenv').config({ path: 'ENV_FILENAME' });
 
 const vars = dotenv.config({ path: '.env' });
 if (vars.error) {
