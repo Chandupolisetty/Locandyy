@@ -4,7 +4,7 @@ const axios = require('axios');
 
 exports.displays = (req, res) => {
     // Make a get request to /api/users
-    axios.get('http://localhost:3000/location')
+    axios.get('https://locandyy.herokuapp.com/location')
         .then(function(response) {
             res.render('display', { locations: response.data });
             // console.log(JSON.stringify(response), "==> responssss");
@@ -17,8 +17,8 @@ exports.displays = (req, res) => {
 
 
 exports.updateLocation = (req, res) => {
-    // res.render("edit")
-    axios.put('http://localhost:3000/location/edit', { params: { id: req.query._id } })
+    res.render("edit")
+    axios.put('https://locandyy.herokuapp.com/location/edit', { params: { id: req.query._id } })
         .then(function(locationData) {
             res.render("edit", { locationv: locationData.data })
             console.log(locationData);
@@ -34,7 +34,7 @@ exports.addlocation = (req, res) => {
         latitude: req.body.latitude,
         longitude: req.body.longitude
     }
-    axios.post('http://localhost:3000/location/create', body)
+    axios.post('https://locandyy.herokuapp.com/location/create', body)
     .then(res => () => {
         res.render("display", { locationv: res.data })
         console.log(res.data);
