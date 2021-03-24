@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 var bodyParser = require('body-parser');
 
 
-
+const port = process.env.PORT || 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 
 mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then((res) =>{
-   app.listen(3000, function () {
-   return "Connected to Database"
+  app.listen(port, function() {
+    return "Connected to Database"
    
  })
 }).catch((e) => {
