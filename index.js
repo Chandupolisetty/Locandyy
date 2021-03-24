@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var env = require('dotenv').config()
-// const router = require('./routes/router')
+const router = require('./routes/router')
 const mongoose = require("mongoose")
 mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', true)
@@ -33,3 +33,4 @@ mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useUnifiedTopol
   console.log(e,"--error")
 })
 app.use(require('./routes/router.js'))
+app.use('/', router)
