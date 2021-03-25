@@ -1,62 +1,89 @@
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
+    <style>
+        .k {
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            height: 50px;
+        }
 
+        .foot {
+            position: fixed;
+            bottom: 0;
+            background-color: black;
+            text-align: center;
+            color: white;
+            width: 100%;
+            font-size: 25px;
+            height: 50px;
+
+        }
+    </style>
 
     <body>
         <header>
             <div class="k">Locandyy</div>
         </header>
-        <br><br><br><br>
-        <table class="table table-inverse">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>longitude</th>
-                    <th>Latitude</th>
-                    <th>edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% for(var i=0; i < locations.length; i++) { %>
+        <main>
+            <br><br><br><br>
+            <table class="table table-inverse">
+                <thead>
                     <tr>
-
-                        <td>
-                            <%= locations[i].locationName %>
-                        </td>
-                        <td>
-                            <%= locations[i].longitude %>
-                        </td>
-                        <td>
-                            <%= locations[i].latitude %>
-                        </td>
-                        <td>
-                           <a href="/locations/edit">Edit</a> 
-                        </td>
-                        <td>
-                            <a href="/locations/delete">Delete</a>
-                        </td>
+                        <th>Name</th>
+                        <th>longitude</th>
+                        <th>Latitude</th>
+                        <th>edit</th>
+                        <th>Delete</th>
                     </tr>
-                    <% } %>
-            </tbody>
-        </table>
+                </thead>
 
+                <tbody>
+                    <% for(var i=0; i < locations.length; i++) { %>
+                        <tr>
+
+                            <td>
+                                <%= locations[i].locationName %>
+                            </td>
+                            <td>
+                                <%= locations[i].longitude %>
+                            </td>
+                            <td>
+                                <%= locations[i].latitude %>
+                            </td>
+                            <td>
+                                <a href="/locations/edit">Edit</a>
+                            </td>
+                            <td>
+                                <a href="/locations/delete">Delete</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </main>
+        <script type="module" src="./scripts/main.js "></script>
+        <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
 
 
     </body>
+    <footer class="foot">
 
-    <br>
-    <!-- Footer -->
-    <%- include('footer') %>
+        <a href="https://github.com/Chandupolisetty/Locandyy">
+            <i class="fab fa-github "></i> GitHub</a>
 
-    
-<script>
-    function func1(){
-      
-    }
-    function func2(){
-      console.log("I am in the click handler 2!"); 
-    }
-  </script>
+        <br>
+        <!-- Footer -->
+        <%- include('footer') %>
+
+
+            <script>
+                function func1() {
+
+                }
+                function func2() {
+                    console.log("I am in the click handler 2!");
+                }
+            </script>

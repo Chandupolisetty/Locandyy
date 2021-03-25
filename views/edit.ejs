@@ -1,6 +1,30 @@
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
+
+    <style>
+        .k {
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            height: 50px;
+        }
+        .foot{
+            position: fixed;
+            bottom: 0;
+            background-color: black;
+            text-align: center;
+            color: white;
+            width: 100%;
+            font-size: 25px;
+            height: 50px;
+    
+        }
+        .f{
+            text-align: center;
+        }
+    </style>
     <body>
         <header>
             <header>
@@ -32,14 +56,21 @@
 
 
                 <div class="form-group">
-                    <button type="submit" class="btn text-dark update">edit</button>
+                    <button type="button" class="btn btn-black" onclick="productUpdate();">Add</button>
+
                 </div>
 
 
             </form>
         </main>
+        <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
         <script type="module " src="./scripts/main.js "></script>
     </body>
-    <br>
-    <!-- Footer -->
-    <%- include('footer') %>
+<br>
+<footer class="foot">
+
+    <a href="https://github.com/Chandupolisetty/Locandyy">
+        <i class="fab fa-github "></i> GitHub</a>
+</footer>
+
+    

@@ -1,42 +1,69 @@
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
+    <style>
+        .k {
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            height: 50px;
+        }
+        .foot{
+            position: fixed;
+            bottom: 0;
+            background-color: black;
+            text-align: center;
+            color: white;
+            width: 100%;
+            font-size: 25px;
+            height: 50px;
+
+        }
+        .f{
+            text-align: center;
+        }
+    </style>
 
     <body>
         <header>
-            <div class = "k">Locandyy</div>
-            </header>
+            <div class="k">Locandyy</div>
+        </header>
         <main>
+
 
             <br>
             <br>
             <br>
             <form action="/locations" class="f" method="POST">
                 <div class="card-body">
-                <div class="form-group">
-                    <label for="name" class="c1">Name: </label>
-                    <input id="name" type="text" name="locationName" value="">
-                </div>
-                <div class="form-group">
-                    <label for="latitude" class="c1">Latitude: </label>
-                    <input id="lat" type="decimal" name="latitude" value="">
-                </div>
-                <div class="form-group">
-                    <label for="longitude" class="c1">Longitude: </label>
-                    <input id="lon" type="decimal" name="longitude" value="">
-                </div>
+                    <div class="form-group">
+                        <label for="name" class="c1">Name: </label>
+                        <input id="name" type="text" name="locationName" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="latitude" class="c1">Latitude: </label>
+                        <input id="lat" type="decimal" name="latitude" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude" class="c1">Longitude: </label>
+                        <input id="lon" type="decimal" name="longitude" value="">
+                    </div>
 
-                <div class="a">
-                    <button class="a">Save</button>
-                </div>
+                    <div class="a">
+                        <button type="button" class="btn btn-black" onclick="productUpdate();">Save</button>
+                    </div>
 
-            </div>
+                </div>
             </form>
         </main>
+
+        <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
         <script type="module " src="../services.js "></script>
     </body>
     <br>
-    <!-- Footer -->
-    <%- include('footer') %>
+    <footer class="foot">
 
-    x
+        <a href="https://github.com/Chandupolisetty/Locandyy">
+            <i class="fab fa-github "></i> GitHub</a>
+    </footer>

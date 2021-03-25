@@ -1,7 +1,11 @@
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
-
+<style>
+    .d{
+        padding-left: 30%;
+    }
+</style>
     <body>
         <header>
             <div class="k">Locandyy</div>
@@ -10,8 +14,12 @@
             <article>
                 <div>
                     <div id="container">
-                        <div id="status"></div>
-                        <div id="status1"></div>
+                        <div id="field"></div>
+                        <div id="field1"></div>
+                    </div >
+                    <div class = "d">
+                        <button type="button" class="btn btn-black" onclick="productUpdate();">Add locations</button>
+                    </div>
                     </div>
                 </div>
             </article>
