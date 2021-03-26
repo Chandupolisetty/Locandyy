@@ -1,6 +1,6 @@
   
 const axios = require('axios');
-
+const loc = require('./models/location');
 
 exports.displays = (req, res) => {
     // Make a get request to /api/users
@@ -15,20 +15,35 @@ exports.displays = (req, res) => {
             res.send(err);
         })
 }
-
-
 exports.updateLocation = (req, res) => {
-    res.render("edit")
-    // axios.put('https://locandyy.herokuapp.com/location/edit', { params: { id: req.query._id } })
-    axios.put('http://localhost:3000/location/edit', { params: { id: req.query._id } })
-        .then(function(locationData) {
-            res.render("edit", { locationv: locationData.data })
-            console.log(locationData);
-        })
-        .catch(err => {
-            res.send(err);
-        })
+
+    const lid = req.params.lid;
+
+    console.log(lid, "====> INSIDE EDIT LOCATION")
+
+    loc.findById(lid)
+        .then(locations => {
+            console.log(lid, "=====> location found")
+
+            res.render('editview', { lid })
+        }).catch((err) => {
+            console.log(err, "==> error while getting")
+        });
+
 }
+
+// exports.updateLocation = (req, res) => {
+//     res.render("edit")
+//     // axios.put('https://locandyy.herokuapp.com/location/edit', { params: { id: req.query._id } })
+//     axios.put('http://localhost:3000/location/edit', { params: { id: req.query._id } })
+//         .then(function(locationData) {
+//             res.render("edit", { locationv: locationData.data })
+//             console.log(locationData);
+//         })
+//         .catch(err => {
+//             res.send(err);
+//         })
+// }
 exports.addlocation = (req, res) => {
     res.render('create');
     var body = {

@@ -5,6 +5,7 @@ const router = require('./routes/router')
 const dotenv = require('dotenv');
 
 app.use('/', router)
+app.use(express.static(__dirname+'/public/'))
 const mongoose = require("mongoose")
 mongoose.set('useNewUrlParser', true)
 mongoose.set('useFindAndModify', true)

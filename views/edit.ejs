@@ -37,11 +37,10 @@
             <br>
             <br>
             <br>
-            <form action="/locations" class = "f" method="POST">
-
+            <form action="/locations/edit/<%= locations._id %>" method="POST" id="update-location">
                 <div class="form-group">
                     <label for="name" class="c1">Name:   </label>
-                    <input type="text" name="name" value="">
+                    <input type="text" name="name" value="<%= location._id %>">
                 </div>
                 <div class="form-group">
                     <label for="latitude" class="c1">Latitude:   </label>

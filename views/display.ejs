@@ -45,7 +45,8 @@
                         <tr>
 
                             <td>
-                                <%= locations[i].locationName %>
+                                <%= locations[i]._id %>
+                                    <%= locations[i].locationName %>
                             </td>
                             <td>
                                 <%= locations[i].longitude %>
@@ -54,10 +55,22 @@
                                 <%= locations[i].latitude %>
                             </td>
                             <td>
-                                <a href="/locations/edit">Edit</a>
+                                <form action="/locations/editview/<%= locations[i]._id %>" method="POST">
+                                    <div class="form">
+                                        <button type="submit">edit</button>
+                                    </div>
+                                </form>
+                                <!-- <a href="/locations/editview/<%= locations[i]._id %>">Edit</a> -->
                             </td>
                             <td>
-                                <a href="/locations/delete">Delete</a>
+                                <form action="/locations/delete/<%= locations[i]._id %>" method="POST">
+                                    <div class="form">
+                                        <button type="submit">Delete<%= locations[i].id %></button>
+                                    </div>
+                                </form>
+                            </td>
+
+                            <!-- <a href="/locations/delete">Delete</a> -->
                             </td>
                         </tr>
                         <% } %>
