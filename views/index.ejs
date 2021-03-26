@@ -1,46 +1,52 @@
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
-<style>
+    <style>
+        #field {
+            height: 200px;
+            width: 200px;
+            background: orange;
+            float: left;
+            margin-left: 2px;
+            border: 1px solid #ccc;
+        }
 
-#field {
-  height: 200px;
-  width: 200px;
-  background:orange;
-  float: left;
-  margin-left: 2px;
-  border: 1px solid #ccc;
-}
-
-#field1 {
-  height: 200px;
-  width: 200px;
-  background: black;
-  float: left;
-  margin-left: 2px;
-  border: 1px solid #ccc;
-}
+        #field1 {
+            height: 200px;
+            width: 200px;
+            background: black;
+            float: left;
+            margin-left: 2px;
+            border: 1px solid #ccc;
+        }
 
 
-    .d{
-        padding-left: 30%;
-    }
-    #t{
-        background-color: black;
-        color: white;
-        border:none;
-        margin-top: 5%;
-        border-radius: 5px;
-        padding-left: 2%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        padding-right: 2%;
-    }
-    
-    
-</style>
+        .d {
+            padding-left: 30%;
+        }
+
+        #t {
+            background-color: black;
+            color: white;
+            border: none;
+            margin-top: 5%;
+            border-radius: 5px;
+            padding-left: 2%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            padding-right: 2%;
+        }
+        .k {
+            background-color: black;
+            text-align: center;
+            color: white;
+            font-size: 25px;
+            height: 50px;
+        }
+    </style>
+
     <body>
-     
+
         <header>
             <div class="k">Locandyy</div>
         </header>
@@ -50,8 +56,8 @@
                     <div id="container">
                         <div id="field"></div>
                         <div id="field1"></div>
-                        <br/>
-                    </div >
+                        <br />
+                    </div>
                     <!-- <div class = "d">
                         <button type="button" class="btn btn-black" onclick="productUpdate();">Add locations</button>
                     </div> -->
@@ -60,13 +66,13 @@
 
                     <div class="form-group">
                         <form action="https://locandyy.herokuapp.com/create">
-                            <input type="submit" value="Add Location" id ="t"/>
+                            <input type="submit" value="Add Location" id="t" />
                         </form>
-                        </div>
+                    </div>
                     <!-- <div class = "d">
                         <button type="button" class="btn btn-black" onclick="displays()">Add locations</button>
                     </div> -->
-                    </div>
+                </div>
                 </div>
             </article>
         </main>
