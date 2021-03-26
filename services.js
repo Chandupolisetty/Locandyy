@@ -17,7 +17,7 @@ exports.displays = (req, res) => {
 }
 exports.updateLocation = (req, res) => {
 
-    const lid = req.params.lid;
+    const lid = req.params.id;
 
     console.log(lid, "====> INSIDE EDIT LOCATION")
 

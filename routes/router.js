@@ -17,7 +17,7 @@ router.get('/', (req, res,next) => {
 
 
 router.get('/locations/', services.displays);
-router.get('/locations/editview/:lid ', services.updateLocation);
+router.get('/locations/editview/:id', services.updateLocation);
 router.get('/locations/create', services.addlocation);
 
 // router.get('/display', services.displays);
