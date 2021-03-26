@@ -33,14 +33,15 @@
             
         </header>
         <main>
-            
             <br>
             <br>
             <br>
+            <form action="/locations/edit/<%= locations._id %>" method="POST" id="update-location">
             <form action="/locations/edit/<%= locations._id %>"method="POST">
 
                 <div class="form-group">
                     <label for="name" class="c1">Name:   </label>
+                    <!-- <input type="text" name="name" value="<%= locations._id %>"> -->
                     <input type="text" name="locationName" value="<%= locations.locationName %>">
                 </div>
                 <div class="form-group">
@@ -55,20 +56,15 @@
 
 
 
-                <div class="form-group" id = 't'>
-                    <button type="button" class="btn btn-black" onclick="update();">Add</button>
+                <div class="form-group">
+                  
 
+                    <button type="submit" class="btn btn-black" >Update</button>
                 </div>
+
+
             </form>
         </main>
         <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
-        <script type="module " src="./scripts/main.js "></script>
-    </body>
-<br>
-<footer class="foot">
 
-    <a href="https://github.com/Chandupolisetty/Locandyy">
-        <i class="fab fa-github "></i> GitHub</a>
-</footer>
-
-    
+            
