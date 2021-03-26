@@ -158,22 +158,29 @@ exports.update = (req, res) => {
 
 
 exports.delete = (req, res) => {
-    LocationSchema.findByIdAndRemove(req.params.locationId)
+    const id = req.params.id;
+
+
+    console.log(id);
+    LocationSchema.findByIdAndRemove(id)
     .then(location => {
+        console.log("=========================> inside loop");
+        console.log(id);
         if(!location) {
             return res.status(404).send({
-                message: "Location not found with id " + req.params.locationId
+                message: "Location not found with id " + id
             });
         }
-        res.send({message: "Location deleted successfully!"});
+        // res.send({message: "Location deleted successfully!"});
+        res.redirect('/locations')
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "Location not found with id " + req.params.locationId
+                message: "Location not found with id " + id
             });                
         }
         return res.status(500).send({
-            message: "Could not delete Location with id " + req.params.locationId
+            message: "Could not delete Location with id " + id
         });
     });
 }
