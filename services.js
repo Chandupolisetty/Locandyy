@@ -51,7 +51,7 @@ exports.addlocation = (req, res) => {
         latitude: req.body.latitude,
         longitude: req.body.longitude
     }
-    axios.post('https://locandyy.herokuapp.com/location/create', body)
+    axios.post('https://locandyy.herokuapp.com/locations/create', body)
     // axios.post('http://localhost:3000/location/create', body)
     .then(res => () => {
         res.render("display", { locationv: res.data })
