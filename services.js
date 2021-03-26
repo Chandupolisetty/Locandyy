@@ -23,9 +23,9 @@ exports.updateLocation = (req, res) => {
 
     loc.findById(lid)
         .then(locations => {
-            console.log(lid, "=====> location found")
+            console.log(locations, "=====> location found")
 
-            res.render('editview', { lid })
+            res.render('edit', { locations })
         }).catch((err) => {
             console.log(err, "==> error while getting")
         });

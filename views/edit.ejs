@@ -37,10 +37,11 @@
             <br>
             <br>
             <br>
-            <form action="/locations/edit/<%= locations._id %>" method="POST" id="update-location">
+            <form action="/locations/edit/<%= locations._id %>"method="POST">
+
                 <div class="form-group">
                     <label for="name" class="c1">Name:   </label>
-                    <input type="text" name="name" value="<%= location._id %>">
+                    <input type="text" name="locationName" value="<%= locations.locationName %>">
                 </div>
                 <div class="form-group">
                     <label for="latitude" class="c1">Latitude:   </label>
@@ -50,16 +51,9 @@
                     <label for="longitude" class="c1">Longitude:   </label>
                     <input type="decimal" name="longitude" value="">
                 </div>
-
-
-
-
                 <div class="form-group">
-                    <button type="button" class="btn btn-black" onclick="update();">Add</button>
-
+                    <button type="submit" class="btn btn-black" >Update</button>
                 </div>
-
-
             </form>
         </main>
         <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">

@@ -111,33 +111,29 @@ exports.findOne = (req, res) => {
 // Update the location
 
 exports.update = (req, res) => {
-    if(!req.body) {
-        return res.status(400).send({
-            message: "Product content can not be empty"
-        });
+    console.log(req.body, "=====> UPDATE DATA")
+
+    if (!req.body) {
+        return res
+            .status(400)
+            .send({ message: "Data to update can not be empty" })
     }
 
-    // Find and update product with the request body
-    LocationSchema.findOneAndUpdate(req.params.productId, {
-        locationName : req.body.locationName,
-    }, {new: true})
-    .then(location => {
-        if(!location) {
-            return res.status(404).send({
-                message: "LocationId not found with id " + req.params.locationId
-            });
-        }
-        res.send(location);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "Product not found with id " + req.params.locationId
-            });                
-        }
-        return res.status(500).send({
-            message: "Something wrong updating note with id " + req.params.locationId
-        });
-    });
+    const id = req.params.id;
+
+    LocationSchema.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+        .then(data => {
+            if (!data) {
+                res.status(404).send({ message: `Cannot Update user with ${id}. Maybe user not found!` })
+            } else {
+                // res.send(data)
+                res.redirect('/locations/')
+
+            }
+        })
+        .catch(err => {
+            res.status(500).send({ message: "Error Update user information" })
+        })
 }
 
 // app.put('/editLocation/:id', async(req, res) =>{
