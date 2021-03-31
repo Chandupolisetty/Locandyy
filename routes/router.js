@@ -11,7 +11,7 @@ const services = require('../services')
 
 
 router.get('/', (req, res,next) => {
-  res.render('../views/index', { title: 'index' })
+  res.render('../views/index', { title: 'index' }, {})
 })
 
 
