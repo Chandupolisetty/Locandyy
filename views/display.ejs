@@ -25,9 +25,9 @@
 
     <body>
         <header>
-            <a class=" navbar-brand " id="navIn " href="https://locandyy.herokuapp.com/" style="color: #ffffff; font-weight: bolder; ">
-
-            <div class="k">Locandyy</div>
+            <div class="k">
+                <a  href="https://locandyy.herokuapp.com/" >
+                    Locandyy</div></a>
         </header>
         <main>
             <br><br><br><br>
@@ -47,8 +47,8 @@
                         <tr>
 
                             <td>
-                               
-                                    <%= locations[i].locationName %>
+
+                                <%= locations[i].locationName %>
                             </td>
                             <td>
                                 <%= locations[i].longitude %>
@@ -57,12 +57,12 @@
                                 <%= locations[i].latitude %>
                             </td>
                             <td>
-                                <form action="/locations/editview/<%= locations[i]._id %>" >
+                                <form action="/locations/editview/<%= locations[i]._id %>">
                                     <div class="form">
                                         <button type="submit">EDIT<%= locations[i].id %></button>
                                     </div>
                                 </form>
-                                
+
                             </td>
                             <td>
                                 <form action="/locations/delete/<%= locations[i]._id %>" method="POST">
@@ -92,11 +92,11 @@
         <br>
 
 
-            <script>
-                function func1() {
+        <script>
+            function func1() {
 
-                }
-                function func2() {
-                    console.log("I am in the click handler 2!");
-                }
-            </script>
+            }
+            function func2() {
+                console.log("I am in the click handler 2!");
+            }
+        </script>
