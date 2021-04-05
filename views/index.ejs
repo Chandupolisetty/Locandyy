@@ -83,81 +83,82 @@
             text-align: left;
             align-content: center;
         }
-
-        
+        .p{
+            align-items: center;
+        }
     </style>
 
-<script>
-    let colorElement1 = document.getElementById("field1");
+    <script>
+        let colorElement1 = document.getElementById("field1");
 
-  var locarr = [
-    {
-        Name: 'Colden Hall',
-        type: 'circle',
-        coordinate: [
+        var locarr = [
             {
-            latitude: 40.35108979954159, 
-            longitude: -94.88241248675814
-        }
-        ],
+                Name: 'Colden Hall',
+                type: 'circle',
+                coordinate: [
+                    {
+                        latitude: 40.35108979954159,
+                        longitude: -94.88241248675814
+                    }
+                ],
 
-    },
-    {
-        Name: 'Horizons West Apartments',
-        type: 'circle',
-        coordinate: [
+            },
             {
-                latitude: 41.31447748801441,
-            longitude: -95.05660917970772
+                Name: 'Horizons West Apartments',
+                type: 'circle',
+                coordinate: [
+                    {
+                        latitude: 41.31447748801441,
+                        longitude: -95.05660917970772
+                    }
+                ]
+
+            },
+            {
+                Name: 'B.D Owens Library',
+                type: 'circle',
+                coordinate: [
+                    {
+                        latitude: 40.353523,
+                        longitude: -94.886021
+                    }
+                ]
+
             }
         ]
 
-    },
-    {
-        Name: 'B.D Owens Library',
-        type: 'circle',
-        coordinate: [
-            {
-            latitude: 40.353523,
-            longitude: -94.886021
+
+        window.addEventListener('load', main);
+        // colorElement.addEventListener('click', onClickSquareBox2);
+        // colorElement.addEventListener('touch', onClickSquareBox2);
+        colorElement.addEventListener('click', onClickSquareBox1);
+        colorElement.addEventListener('touch', onClickSquareBox1);
+
+        function main() {
+            console.log('Page is fully loaded');
         }
-    ]
 
-    }
-]
+        function onClickSquareBox1() {
 
+            const random = Math.floor(Math.random() * locarr.length);
+            console.log(random, 'Page is fully loaded');
+            document.getElementById("targetloc").innerHTML = "The Location selceted is " + locarr[random].Name;
+            // document.getElementById("lbl").innerHTML = targetLoc.Name;
+            let utterance = new SpeechSynthesisUtterance(`The location to be found is ${locarr[random].Name}`);
+            speechSynthesis.speak(utterance);
+            document.getElementById("device-lat").innerHTML = targetLoc.coordinates[0].latitude;
+            document.getElementById("device-long").innerHTML = targetLoc.coordinates[1].longitude;
+            console.log("---sumanth is here---")
+        }
 
-window.addEventListener('load', main);
-// colorElement.addEventListener('click', onClickSquareBox2);
-// colorElement.addEventListener('touch', onClickSquareBox2);
-colorElement.addEventListener('click', onClickSquareBox1);
-colorElement.addEventListener('touch', onClickSquareBox1);
-
-function main() {
-    console.log('Page is fully loaded');
-}
-
- function onClickSquareBox1() {
- 
-    const random = Math.floor(Math.random() * locarr.length);
-    console.log(random, 'Page is fully loaded');
-   document.getElementById("targetloc").innerHTML = "The Location selceted is " + locarr[random].Name;
-    // document.getElementById("lbl").innerHTML = targetLoc.Name;
-    let utterance = new SpeechSynthesisUtterance(`The location to be found is ${locarr[random].Name}`);
-    speechSynthesis.speak(utterance);
-   document.getElementById("device-lat").innerHTML = targetLoc.coordinates[0].latitude;
-    document.getElementById("device-long").innerHTML = targetLoc.coordinates[1].longitude; 
-console.log("---sumanth is here---")
-}
-
-</script>
+    </script>
 
     <body>
 
         <header>
             <div class="k">Locandyy</div>
         </header>
-        
+
         <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
@@ -168,10 +169,10 @@ console.log("---sumanth is here---")
                         <div id="field" onclick="onClickSquareBox1()">
                             <div id="targetloc"></div>
                             <div id="lbl"></div>
-                            <br/>
-                    <div id="device-lat1"></div>
-                    <br/>
-                    <div id="device-long1"></div>
+                            <br />
+                            <div id="device-lat1"></div>
+                            <br />
+                            <div id="device-long1"></div>
                         </div>
                         <div id="field1">
 
@@ -183,18 +184,19 @@ console.log("---sumanth is here---")
                     </div> -->
                     <br>
                     <br>
+                    <div class ="p">
+                        <div class="form-group">
+                            <form action="https://locandyy.herokuapp.com/locations/create">
+                                <input type="submit" value="Add Location" id="t" />
+                            </form>
+                        </div>
+                        <div class="form-group1">
+                            <form action="https://locandyy.herokuapp.com/locations/">
+                                <input type="submit" value="Display Locations" id="t" />
+                            </form>
+                        </div>
+                    </div>
 
-                    <div class="form-group">
-                        <form action="https://locandyy.herokuapp.com/locations/create">
-                            <input type="submit" value="Add Location" id="t" />
-                        </form>
-                    </div>
-                    <div class="form-group1">
-                        <form action="https://locandyy.herokuapp.com/locations/">
-                            <input type="submit" value="Display Locations" id="t" />
-                        </form>
-                    </div>
-                  
                     <!-- <div class = "d">
                         <button type="button" class="btn btn-black" onclick="displays()">Add locations</button>
                     </div> -->
