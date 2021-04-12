@@ -49,16 +49,16 @@
             <br>
             <br>
             <br>
-            <form action="/locations/" class="f" method="POST">
+            <form action="/locations" class="f" method="POST">
                 <div class="card-body">
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="name" class="c1">Name: </label>
                         <input id="name" type="text" name="locationName" required>
-                    </div> -->
-                    <div class="form-group">
+                    </div>
+                    <!-- <div class="form-group">
                         <label for="locationName">Location Name:</label>
-                        <input type="text" class="form-control" id="locationName" name="locationName" value="<%= location.locationName %>"  pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" title="Accepts only alphabets,neither numerics nor special characters." autocomplete="off" required>
-                      </div>
+                        <input type="text" class="form-control" id="locationName" name="locationName"  pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$" title="Accepts only alphabets." autocomplete="off" required>
+                      </div> -->
                     <div class="form-group">
                         <label for="latitude" class="c1">Latitude: </label>
                         <input type="number" step =".0000000000000001" name="latitude" min="-90.00000000000" max= "90.0000000000" required>
