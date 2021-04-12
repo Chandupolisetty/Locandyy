@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <!-- include header -->
 <%- include('header') %>
     <!-- /include header -->
@@ -85,11 +87,15 @@
             align-content: center;
             margin-left: -17;
         }
-        .p{
+
+        .p {
             align-items: center;
         }
+        .error{
+            background-color: white;
+        }
     </style>
-
+    <!-- 
     <script>
         let colorElement1 = document.getElementById("field1");
 
@@ -153,7 +159,7 @@
             console.log("---sumanth is here---")
         }
 
-    </script>
+    </script> -->
 
     <body>
 
@@ -168,15 +174,27 @@
             <article>
                 <div>
                     <div id="container">
-                        <div id="field" onclick="onClickSquareBox1()">
-                            <div id="targetloc"></div>
-                            <div id="lbl"></div>
-                            <br />
-                            <div id="device-lat1"></div>
-                            <br />
-                            <div id="device-long1"></div>
+                        <div id="field" >
+                            <div id="bgrone">
+                                <br> Quest Location Name: <br>
+                            <div id="ready"></div>
+                            <div id="ready1"></div>
+                                <!-- <a id="lbl" href="https://group-1-treasure.herokuapp.com/random"> -->
+                                <span id="lname" style="color: black;" value="<%= value.locationName %>"> <%= value.locationName %></span>
+                                <span id="llat" value="<%= value.latitude %>" style="visibility: hidden;"></span>
+                                <span id="llong" value="<%= value.longitude %>" style="visibility: hidden;"></span>
+                                
+                            </div>
                         </div>
                         <div id="field1">
+                            <div id="targetloc"></div>
+                                <div id="lbl"></div>
+                                <br />
+                                <div id="device-lat1" style="color: white;"></div>
+                                <br />
+                                <div id="device-long1" style="color: white;"></div>
+                                <br />
+                                <div id="error" style="color: white;"></div>
 
                         </div>
                         <br />
@@ -186,7 +204,7 @@
                     </div> -->
                     <br>
                     <br>
-                    <div class ="p">
+                    <div class="p">
                         <div class="form-group">
                             <form action="https://locandyy.herokuapp.com/locations/create">
                                 <input type="submit" value="Add Location" id="t" />
@@ -206,8 +224,10 @@
                 </div>
             </article>
         </main>
-        <!-- <script type="module" src="./scripts/main.js "></script> -->
-        <script type="module" src="../public/scripts/main.js"></script>
+
+
+
+        <script type="module" src="/scripts/main.js"></script>
         <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
     </body>
     <br>
@@ -216,3 +236,5 @@
         <a href="https://github.com/Chandupolisetty/Locandyy">
             <i class="fab fa-github "></i> GitHub</a>
     </footer>
+
+</html>
