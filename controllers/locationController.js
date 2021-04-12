@@ -28,6 +28,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //       } )
 // })
 
+exports.random = (req, res) => {
+
+    console.log("======> homepage")
+
+
+    LocationSchema.find()
+        .then(location => {
+            // res.send(location);
+            const random = Math.floor(Math.random() * location.length);
+            let value = location[random];
+
+            // res.send(value);
+            console.log(value)
+            res.render('index', { value })
+
+
+        });
+
+
+}
 exports.create = (req, res) => {
     console.log(req.body,"--body is here--")
 
