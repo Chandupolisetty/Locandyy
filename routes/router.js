@@ -15,6 +15,7 @@ const services = require('../services')
 // })
 
 
+router.get('/',locationController.random);
 
 router.get('/', locationController.random);
 router.get('/locations/', services.displays);

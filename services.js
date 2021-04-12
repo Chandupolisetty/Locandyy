@@ -15,6 +15,9 @@ exports.displays = (req, res) => {
             res.send(err);
         })
 }
+
+
+
 exports.updateLocation = (req, res) => {
 
     const lid = req.params.id;

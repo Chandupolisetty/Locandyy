@@ -97,43 +97,51 @@
     </style>
     <!-- 
     <script>
+        // const axios = require('axios');
         let colorElement1 = document.getElementById("field1");
 
-        var locarr = [
-            {
-                Name: 'Colden Hall',
-                type: 'circle',
-                coordinate: [
-                    {
-                        latitude: 40.35108979954159,
-                        longitude: -94.88241248675814
-                    }
-                ],
 
-            },
-            {
-                Name: 'Horizons West Apartments',
-                type: 'circle',
-                coordinate: [
-                    {
-                        latitude: 41.31447748801441,
-                        longitude: -95.05660917970772
-                    }
-                ]
+        // var locarr = [
+        //     {
+        //         Name: 'Colden Hall',
+        //         type: 'circle',
+        //         coordinate: [
+        //             {
+        //                 latitude: 40.35108979954159,
+        //                 longitude: -94.88241248675814
+        //             }
+        //         ],
 
-            },
-            {
-                Name: 'B.D Owens Library',
-                type: 'circle',
-                coordinate: [
-                    {
-                        latitude: 40.353523,
-                        longitude: -94.886021
-                    }
-                ]
+        //     },
+        //     {
+        //         Name: 'Horizons West Apartments',
+        //         type: 'circle',
+        //         coordinate: [
+        //             {
+        //                 latitude: 41.31447748801441,
+        //                 longitude: -95.05660917970772
+        //             }
+        //         ]
 
-            }
-        ]
+        //     },
+        //     {
+        //         Name: 'B.D Owens Library',
+        //         type: 'circle',
+        //         coordinate: [
+        //             {
+        //                 latitude: 40.353523,
+        //                 longitude: -94.886021
+        //             }
+        //         ]
+
+        //     }
+        // ]
+
+        function getLocations(){
+           axios.get('https://locandyy.herokuapp.com/location').then(res => {
+               console.log(res,"--response is here--")
+           }).catch(e => {console.log(e, "--error is here--")})
+        }
 
 
         window.addEventListener('load', main);
@@ -147,7 +155,7 @@
         }
 
         function onClickSquareBox1() {
-
+            getLoc()
             const random = Math.floor(Math.random() * locarr.length);
             console.log(random, 'Page is fully loaded');
             document.getElementById("targetloc").innerHTML = "The Location selceted is " + locarr[random].Name;
@@ -186,6 +194,17 @@
                                 
                             </div>
                         </div>
+                        <a id="field" href="https://locandyy.herokuapp.com/location">
+                            <div id="targetloc"></div>
+                            <div id="lbl"></div>
+                            <%= v.locationName %>
+                            <br />
+                            <div id="device-lat1"></div>
+                            <br />
+                            <div id="device-long1"></div>
+                        </a>
+                              
+                    </a>
                         <div id="field1">
                             <div id="targetloc"></div>
                                 <div id="lbl"></div>
@@ -224,10 +243,16 @@
                 </div>
             </article>
         </main>
+<<<<<<< HEAD
 
 
 
         <script type="module" src="/scripts/main.js"></script>
+=======
+        <!-- <script type="module" src="./scripts/main.js "></script> -->
+        <script type="module" src="../public/scripts/main.js"></script>
+        <script type="module " src="../services.js"></script>
+>>>>>>> da1139f4a963ab2fa66f26e6e6ebfa3650ed7547
         <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
     </body>
     <br>
