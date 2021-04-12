@@ -11,6 +11,7 @@
             float: left;
             margin-left: 2px;
             border: 1px solid #ccc;
+
         }
 
         #field1 {
@@ -20,6 +21,7 @@
             float: left;
             margin-left: 2px;
             border: 1px solid #ccc;
+            text-align: right;
         }
 
 
@@ -185,7 +187,10 @@
                         <div id="field" >
                             <div id="bgrone">
                                 <br> Quest Location Name: <br>
-                            <div id="ready"></div>
+                                <!-- <a id="field" href="https://locandyy.herokuapp.com/location"></a> -->
+                                <!-- <%= value.locationName %> -->
+                                <div id="ready"></div>
+
                             <div id="ready1"></div>
                                 <!-- <a id="lbl" href="https://group-1-treasure.herokuapp.com/random"> -->
                                 <span id="lname" style="color: black;" value="<%= value.locationName %>"> <%= value.locationName %></span>
@@ -194,17 +199,8 @@
                                 
                             </div>
                         </div>
-                        <a id="field" href="https://locandyy.herokuapp.com/location">
-                            <div id="targetloc"></div>
-                            <div id="lbl"></div>
-                            <%= v.locationName %>
-                            <br />
-                            <div id="device-lat1"></div>
-                            <br />
-                            <div id="device-long1"></div>
-                        </a>
-                              
-                    </a>
+                        
+                        
                         <div id="field1">
                             <div id="targetloc"></div>
                                 <div id="lbl"></div>
@@ -243,16 +239,13 @@
                 </div>
             </article>
         </main>
-<<<<<<< HEAD
 
 
 
         <script type="module" src="/scripts/main.js"></script>
-=======
         <!-- <script type="module" src="./scripts/main.js "></script> -->
         <script type="module" src="../public/scripts/main.js"></script>
         <script type="module " src="../services.js"></script>
->>>>>>> da1139f4a963ab2fa66f26e6e6ebfa3650ed7547
         <link href="../public/Styles/main.css" rel="stylesheet" type="text/css">
     </body>
     <br>
