@@ -12,9 +12,9 @@ function main() {
     if (incrementer == 1) {
         document.getElementById("ready").innerHTML = "Click to start playing";
         document.getElementById("ready1").innerHTML = " ";
-        document.getElementById("lname").innerHTML="questLocationName"
-        // let utterance = new SpeechSynthesisUtterance("Your Location is ready. Find it.");
-        // speechSynthesis.speak(utterance);
+        // document.getElementById("lname").innerHTML="questLocationName"
+        let utterance = new SpeechSynthesisUtterance("Your Location is ready. Find it.");
+        speechSynthesis.speak(utterance);
         document.getElementById("lname").innerHTML = "        ";
     }
     incrementer = 0;
@@ -85,24 +85,26 @@ async function onClickSquareBox2() {
 
 
         if (isInside() == true) {
-            console.log("==========> inside inside")
+            // console.log("==========> inside inside")
             document.getElementById("target").innerHTML = questLocationName;
-
-            let utterance = new SpeechSynthesisUtterance("Congratulations!, You found location ${questLocationName}");
+            document.getElementById("distance").innerHTML = "  ";
+            document.getElementById("error").innerHTML = "Congratulations!!!!!!";
+            let utterance = new SpeechSynthesisUtterance(`Congratulations!, You found location ${questLocationName}`);
             speechSynthesis.speak(utterance);
-            console.log(questLocationLat);
             error = false;
         };
 
         if (error) {
-            console.log("error is here")
+            // console.log("error is here")
             document.getElementById("error").innerHTML = "Sorry,You're not near to the treasure";
+            document.getElementById("distance").innerHTML = "Distance to the location:  " + distance + " meters.";
+
             let utterance = new SpeechSynthesisUtterance("Sorry,You're not near to the treasure");
             speechSynthesis.speak(utterance);
         } else {
             document.getElementById("target1").innerHTML = "";
         }
-        console.log(incrementer, "===================>")
+        // console.log(incrementer, "===================>")
 
     } else {
         document.getElementById("target").innerHTML = "First click on Box 2";
@@ -119,7 +121,7 @@ function isInside(questLocationLat, questLocationLong) {
     console.log("quest lat " + questLocationLat);
 
 
-    if (distance < 30) {
+    if (distance < 0.5) {
         return true;
     } else {
         return false;
