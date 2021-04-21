@@ -8,7 +8,7 @@ let incrementer = 1;
 
 function main() {
     console.log('Page is fully loaded');
-    // console.log(questLocationName);
+    console.log(questLocationName);
     if (incrementer == 1) {
         document.getElementById("ready").innerHTML = "Click to start playing";
         document.getElementById("ready1").innerHTML = " ";
@@ -70,7 +70,7 @@ let currentlat, currentlon, loc, error = true;
 
 async function onClickSquareBox2() {
     if (incrementer == 1) {
-        // const locText = await getLocation();
+        const locText = await getLocation();
         // loc = 'Your current Location';
         // document.getElementById("location").innerHTML = loc;
         currentlat = locText.coords.latitude;
@@ -103,7 +103,7 @@ async function onClickSquareBox2() {
         } 
 
     } else {
-        document.getElementById("target").innerHTML = "First click on Box 2";
+        document.getElementById("target").innerHTML = "First click on Box 1";
     }
 
 }
@@ -135,4 +135,6 @@ function distanceBetweenLocations(currentlat, currentlon, questLocatiionLat, que
     // console.log(result)
 
     return result;
+
 }
+
